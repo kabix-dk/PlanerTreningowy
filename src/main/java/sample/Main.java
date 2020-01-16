@@ -8,7 +8,10 @@ import javafx.stage.Stage;
 import sample.models.exercises.Exercise;
 import sample.models.exercises.SitUp;
 import sample.models.factory.ExerciseList;
+import sample.models.factory.SitUpExercise;
 import sample.models.factory.SquatExercise;
+
+import java.util.ArrayList;
 
 public class Main extends Application {
 
@@ -22,6 +25,9 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+        ExerciseList ex = new SitUpExercise();
+        Exercise exercise = ex.createExercise();
+        System.out.println(exercise);
         launch(args);
     }
 }
