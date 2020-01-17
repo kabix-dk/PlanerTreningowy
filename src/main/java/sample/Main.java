@@ -6,28 +6,22 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import sample.models.exercises.Exercise;
-import sample.models.exercises.SitUp;
 import sample.models.factory.ExerciseList;
 import sample.models.factory.SitUpExercise;
-import sample.models.factory.SquatExercise;
-
-import java.util.ArrayList;
+import sample.models.users.User;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Logowanie.fxml"));
+        primaryStage.setTitle("Logowanie");
+        primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }
 
-
     public static void main(String[] args) {
-        ExerciseList ex = new SitUpExercise();
-        Exercise exercise = ex.createExercise();
-        System.out.println(exercise);
+        User admin = new User("Kabix", "123");
         launch(args);
     }
 }

@@ -1,4 +1,4 @@
-package sample.models.People;
+package sample.models.people;
 
 public class Admin extends Person {
 }
