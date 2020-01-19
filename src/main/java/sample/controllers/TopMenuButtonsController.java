@@ -4,13 +4,12 @@ import javafx.fxml.FXML;
 import sample.models.users.User;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 
 public class TopMenuButtonsController extends ChangeSceneController{
     private MainMenuController mainMenuController;
 
     @FXML
-    public void LogoutButtonAction(javafx.event.ActionEvent actionEvent) throws IOException {
+    public void LogoutButtonAction() throws IOException {
         User us = User.getUser();
         us.logOut();
         changeScene("/fxml/Logowanie.fxml", 350, 350, "Logowanie");

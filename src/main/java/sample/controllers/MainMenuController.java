@@ -7,7 +7,6 @@ import javafx.scene.layout.BorderPane;
 import java.io.IOException;
 
 public class MainMenuController {
-
     @FXML
     private BorderPane borderPane;
 

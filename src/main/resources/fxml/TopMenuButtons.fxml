@@ -4,15 +4,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="584.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.TopMenuButtonsController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.TopMenuButtonsController">
    <children>
-      <Button fx:id="PlanBaseButton" mnemonicParsing="false" onAction="#PlanBaseButtonAction" text="Lista planów">
+      <Button fx:id="PlanBaseButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#PlanBaseButtonAction" prefHeight="56.0" prefWidth="131.0" text="Lista planów">
          <HBox.margin>
             <Insets right="10.0" />
          </HBox.margin></Button>
-      <Button fx:id="LogoutButton" mnemonicParsing="false" onAction="#LogoutButtonAction" text="Wyloguj">
+      <Button fx:id="LogoutButton" mnemonicParsing="false" onAction="#LogoutButtonAction" prefHeight="56.0" prefWidth="131.0" text="Wyloguj">
          <HBox.margin>
-            <Insets right="10.0" />
+            <Insets />
          </HBox.margin></Button>
    </children>
 </HBox>
