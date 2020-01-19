@@ -10,6 +10,8 @@ import sample.models.factory.ExerciseList;
 import sample.models.factory.SitUpExercise;
 import sample.models.users.User;
 
+import java.io.IOException;
+
 public class Main extends Application {
     public static Stage parentWindow;
     @Override
@@ -27,5 +29,4 @@ public class Main extends Application {
         User admin = new User("Kabix", "123");
         launch(args);
     }
-
 }

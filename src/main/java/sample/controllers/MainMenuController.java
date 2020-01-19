@@ -8,10 +8,9 @@ import javafx.stage.Stage;
 import sample.Main;
 import sample.models.users.User;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
-public class MainMenuController {
+public class MainMenuController extends ChangeSceneController {
     @FXML
     private BorderPane borderPane;
 
@@ -19,13 +18,7 @@ public class MainMenuController {
         System.out.println("Przejscie do menu logowania");
         User us = User.getUser();
         us.logOut();
-        Parent window1;
-        window1 = FXMLLoader.load(getClass().getResource("/fxml/Logowanie.fxml"));
-        Stage mainStage;
-        mainStage = Main.parentWindow;
-        mainStage.setWidth(350);
-        mainStage.setHeight(350);
-        mainStage.getScene().setRoot(window1);
+        changeScene("/fxml/Logowanie.fxml", 350, 350, "Logowanie");
     }
 
     public void PlanBaseButtonAction(javafx.event.ActionEvent actionEvent) throws IOException {
