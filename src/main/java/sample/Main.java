@@ -1,28 +1,26 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import sample.models.exercises.Exercise;
-import sample.models.factory.ExerciseList;
-import sample.models.factory.SitUpExercise;
 import sample.models.users.User;
-
-import java.io.IOException;
+import sample.utils.FxmlUtils;
 
 public class Main extends Application {
-    public static Stage parentWindow;
+
+    public static final String BORDER_PANE_MAIN_FXML = "/fxml/BorderPaneMain.fxml";
+
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        parentWindow = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainMenu.fxml"));
-        primaryStage.setTitle("Menu główne");
-        Scene scene = new Scene(root, 800, 600);
-        scene.getStylesheets().add("css/Logowanie.css");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public void start(Stage stage) throws Exception{
+
+        Pane borderPane = FxmlUtils.fxmlLoader(BORDER_PANE_MAIN_FXML);
+        Scene scene = new Scene(borderPane);
+        scene.getStylesheets().add("css/StyleTemplate.css");
+        stage.setScene(scene);
+        stage.setTitle("Okno główne!");
+        stage.show();
+
     }
 
     public static void main(String[] args) {

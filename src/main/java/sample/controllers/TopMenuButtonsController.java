@@ -1,27 +1,27 @@
 package sample.controllers;
 
-import javafx.fxml.FXML;
-import sample.models.users.User;
+import javafx.event.ActionEvent;
 
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
+public class TopMenuButtonsController {
 
-public class TopMenuButtonsController extends ChangeSceneController{
-    private MainMenuController mainMenuController;
+    public static final String PLAN_LIST_FXML = "/fxml/PlanList.fxml";
+    public static final String EXERCISE_BASE_FXML = "/fxml/ExerciseBase.fxml";
+    public static final String LOGIN_PANEL_FXML = "/fxml/LoginPanel.fxml";
+    private MainController mainController;
 
-    @FXML
-    public void LogoutButtonAction(javafx.event.ActionEvent actionEvent) throws IOException {
-        User us = User.getUser();
-        us.logOut();
-        changeScene("/fxml/Logowanie.fxml", 350, 350, "Logowanie");
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
     }
 
-    @FXML
-    public void PlanBaseButtonAction(javafx.event.ActionEvent actionEvent) throws IOException {
-        mainMenuController.setCenter("/fxml/PlanBase.fxml");
+    public void showLoginPanel() {
+        mainController.setCenter(LOGIN_PANEL_FXML);
     }
 
-    public void setMainMenuController(MainMenuController mainMenuController) {
-        this.mainMenuController = mainMenuController;
+    public void showExerciseBase() {
+        mainController.setCenter(EXERCISE_BASE_FXML);
+    }
+
+    public void showPlanList() {
+        mainController.setCenter(PLAN_LIST_FXML);
     }
 }

@@ -4,9 +4,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import sample.models.users.User;
 
-import java.io.IOException;
+import java.awt.*;
 
-public class LogowanieController extends ChangeSceneController {
+public class LogowanieController {
 
     @FXML
     public javafx.scene.control.TextField login_textfield;
@@ -15,12 +15,11 @@ public class LogowanieController extends ChangeSceneController {
 
     User us = User.getUser();
 
-    public void zaloguj(ActionEvent actionEvent) throws IOException {
+    public void zaloguj(ActionEvent actionEvent) {
         String login = login_textfield.getText();
         String haslo = haslo_textfield.getText();
         if(login.equals(us.getLogin()) && haslo.equals(us.getHaslo())) {
             us.logIn();
-            changeScene("/fxml/MainMenu.fxml", 600, 800, "Menu główne");
         } else {
             System.out.println("Wrong!");
         }
