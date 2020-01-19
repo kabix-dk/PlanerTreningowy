@@ -1,4 +1,15 @@
 .root {
     -fx-background-color: #383838;
-    -fx-font-size: 10pt;
+}
+
+.button {
+    -fx-background-color: #AB4642;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 4;
+}
+
+.button_blue {
+    -fx-background-color: #7CAFC2;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 4;
 }
