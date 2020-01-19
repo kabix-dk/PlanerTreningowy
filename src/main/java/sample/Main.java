@@ -11,9 +11,10 @@ import sample.models.factory.SitUpExercise;
 import sample.models.users.User;
 
 public class Main extends Application {
-
+    public static Stage parentWindow;
     @Override
     public void start(Stage primaryStage) throws Exception{
+        parentWindow = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Logowanie.fxml"));
         primaryStage.setTitle("Logowanie");
         Scene scene = new Scene(root, 350, 350);
@@ -26,4 +27,5 @@ public class Main extends Application {
         User admin = new User("Kabix", "123");
         launch(args);
     }
+
 }
