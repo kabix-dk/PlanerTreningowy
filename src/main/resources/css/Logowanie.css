@@ -13,3 +13,7 @@
     -fx-text-fill: #FFFFFF;
     -fx-background-radius: 4;
 }
+
+.text-field {
+    -fx-background-color: #D8D8D8;
+}
