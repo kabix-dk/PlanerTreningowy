@@ -8,7 +8,7 @@ import sample.models.ExerciseBase;
 import sample.models.PlanBase;
 import sample.models.TrainingPlan;
 import sample.models.exercises.*;
-import sample.models.factory.ExerciseList;
+import sample.models.factory.*;
 import sample.models.users.User;
 import sample.utils.FxmlUtils;
 
@@ -37,11 +37,11 @@ public class Main extends Application {
 
     public static void addExercisesToBase() {
         ExerciseBase exerciseBase = ExerciseBase.getInstance();
-        exerciseBase.addToArray(new PushUp());
-        exerciseBase.addToArray(new Squat());
-        exerciseBase.addToArray(new SitUp());
-        exerciseBase.addToArray(new PullUp());
-        exerciseBase.addToArray(new StarJump());
+        exerciseBase.addToArray(new PushUpExercise().createExercise());
+        exerciseBase.addToArray(new SquatExercise().createExercise());
+        exerciseBase.addToArray(new SitUpExercise().createExercise());
+        exerciseBase.addToArray(new PullUpExercise().createExercise());
+        exerciseBase.addToArray(new StarJumpExercise().createExercise());
     }
 
     public static void addPlanToBase() {
