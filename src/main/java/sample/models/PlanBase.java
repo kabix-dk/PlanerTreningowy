@@ -10,4 +10,5 @@ public class PlanBase {
     public static PlanBase getInstance() { return planBase; }
     public ArrayList<TrainingPlan> getArray() { return planList; }
     public void addToArray(TrainingPlan trainingPlan) { planList.add(trainingPlan); }
+    public void delete(TrainingPlan trainingPlan) {planList.remove(trainingPlan);}
 }

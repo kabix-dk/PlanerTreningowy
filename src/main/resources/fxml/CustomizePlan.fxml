@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TreeView fx:id="planBaseTreeView" prefHeight="200.0" prefWidth="200.0" />
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <ImageView fx:id="rightArrow" fitHeight="20.0" fitWidth="40.0">
+               <image>
+                  <Image url="@../images/strzalkaprawo.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="30.0" top="60.0" />
+               </VBox.margin>
+            </ImageView>
+            <ImageView fx:id="leftArrow" fitHeight="20.0" fitWidth="40.0">
+               <image>
+                  <Image url="@../images/strzalkalewo.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="30.0" top="20.0" />
+               </VBox.margin>
+            </ImageView>
+         </children>
+      </VBox>
+      <TreeView fx:id="selectedPlanTextView" prefHeight="200.0" prefWidth="200.0" />
+   </children>
+</HBox>
