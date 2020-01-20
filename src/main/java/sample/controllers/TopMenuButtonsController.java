@@ -2,6 +2,7 @@ package sample.controllers;
 
 public class TopMenuButtonsController {
 
+    public static final String REGISTER_PANEL_FXML = "/fxml/RegisterPanel.fxml";
     public static final String PLAN_LIST_FXML = "/fxml/PlanList.fxml";
     public static final String EXERCISE_BASE_FXML = "/fxml/ExerciseBase.fxml";
     public static final String LOGIN_PANEL_FXML = "/fxml/LoginPanel.fxml";
@@ -21,5 +22,9 @@ public class TopMenuButtonsController {
 
     public void showPlanList() {
         mainController.setCenter(PLAN_LIST_FXML);
+    }
+
+    public void showRegisterPanel() {
+        mainController.setCenter(REGISTER_PANEL_FXML);
     }
 }
