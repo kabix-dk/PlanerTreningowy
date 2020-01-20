@@ -6,12 +6,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import sample.models.ExerciseBase;
 import sample.models.PlanBase;
 import sample.models.TrainingPlan;
-import sample.models.exercises.Exercise;
+import sample.models.exercises.*;
 
 public class CustomizePlanController {
 
@@ -21,6 +21,10 @@ public class CustomizePlanController {
     public TableView<Exercise> selectedPlanTableView;
     @FXML
     public TableColumn<Exercise, String> planExercises;
+    @FXML
+    public TextField loadTextField;
+    @FXML
+    public TextField repetitionsTextField;
     private TrainingPlan selectedTrainingPlan;
     @FXML
     private TableView<Exercise> exerciseTableView;
@@ -28,6 +32,8 @@ public class CustomizePlanController {
     private TableColumn<Exercise, String> baseExercises;
 
     private Exercise selectedExercise;
+
+
 
     public void initialize() {
         baseExercises.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -67,7 +73,22 @@ public class CustomizePlanController {
 
     public void AddExerciseToPlan() {
         selectedExercise = exerciseTableView.getSelectionModel().getSelectedItem();
-        selectedTrainingPlan.addToArray(selectedExercise);
+        String loadAmount="";
+        String repetitionsAmount="";
+        Exercise exercise;
+        if((repetitionsTextField.getText() != null || repetitionsTextField.getText().trim().isEmpty()) && Float.parseFloat(repetitionsTextField.getText()) > 0)
+        {
+            repetitionsAmount = repetitionsTextField.getText();
+        }
+        if((loadTextField.getText() != null || loadTextField.getText().trim().isEmpty()) && Integer.parseInt(loadTextField.getText()) > 0)
+        {
+            loadAmount = loadTextField.getText();
+        }
+        if(loadAmount.equalsIgnoreCase("") && repetitionsAmount.equalsIgnoreCase("")) exercise = selectedExercise;
+        else if (loadAmount.equalsIgnoreCase("") && !repetitionsAmount.equalsIgnoreCase("")) exercise = new Endurance(selectedExercise, repetitionsAmount);
+        else if (!loadAmount.equalsIgnoreCase("") && repetitionsAmount.equalsIgnoreCase("")) exercise = new WithLoad(selectedExercise, loadAmount);
+        else exercise = new WithLoad(new Endurance(selectedExercise, repetitionsAmount), loadAmount);
+        selectedTrainingPlan.addToArray(exercise);
         ComboBoxAction();
     }
 

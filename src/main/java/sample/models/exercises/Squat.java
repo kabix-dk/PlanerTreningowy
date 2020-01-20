@@ -6,5 +6,4 @@ public class Squat extends Exercise {
     public String toString() {
         return "Squat";
     }
-
 }
