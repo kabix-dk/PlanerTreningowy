@@ -1,5 +1,7 @@
 package sample.models.users;
 
+import sample.utils.DialogUtils;
+
 public class User {
     private String login;
     private String haslo;
@@ -18,23 +20,23 @@ public class User {
 
     private class LoggedInState extends UserState {
         public void logIn() {
-            System.out.println("Użytkownik już zalogowany!");
+            DialogUtils.dialogLogin();
         }
 
         public void logOut() {
-            System.out.println("Wylogowano!");
+            DialogUtils.dialogLogoutSuccess();
             userState = WYLOGOWANY;
         }
     }
 
     private class LoggedOutState extends UserState {
         public void logIn() {
-            System.out.println("Zalogowano!");
+            DialogUtils.dialogLoginSuccess();
             userState = ZALOGOWANY;
         }
 
         public void logOut() {
-            System.out.println("Nie jesteś zalogowany!");
+            DialogUtils.dialogLogout();
         }
     }
 

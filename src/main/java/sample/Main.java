@@ -8,7 +8,7 @@ import sample.models.ExerciseBase;
 import sample.models.PlanBase;
 import sample.models.TrainingPlan;
 import sample.models.exercises.*;
-import sample.models.factory.ExerciseList;
+import sample.models.factory.*;
 import sample.models.users.User;
 import sample.utils.FxmlUtils;
 
@@ -18,14 +18,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
-
         Pane borderPane = FxmlUtils.fxmlLoader(BORDER_PANE_MAIN_FXML);
         Scene scene = new Scene(borderPane);
         scene.getStylesheets().add("css/StyleTemplate.css");
         stage.setScene(scene);
         stage.setTitle("Okno główne!");
         stage.show();
-
     }
 
     public static void main(String[] args) {
@@ -37,19 +35,22 @@ public class Main extends Application {
 
     public static void addExercisesToBase() {
         ExerciseBase exerciseBase = ExerciseBase.getInstance();
-        exerciseBase.addToArray(new PushUp());
-        exerciseBase.addToArray(new Squat());
-        exerciseBase.addToArray(new SitUp());
-        exerciseBase.addToArray(new PullUp());
-        exerciseBase.addToArray(new StarJump());
+        exerciseBase.addToArray(new PushUpExercise().createExercise());
+        exerciseBase.addToArray(new SquatExercise().createExercise());
+        exerciseBase.addToArray(new SitUpExercise().createExercise());
+        exerciseBase.addToArray(new PullUpExercise().createExercise());
+        exerciseBase.addToArray(new StarJumpExercise().createExercise());
     }
 
     public static void addPlanToBase() {
         PlanBase planBase = PlanBase.getInstance();
-        TrainingPlan trainingPlan = new TrainingPlan("Plan jeden");
-        trainingPlan.addToArray(new PushUp());
-        trainingPlan.addToArray(new Squat());
-        trainingPlan.addToArray(new SitUp());
-        planBase.addToArray(trainingPlan);
+        TrainingPlan firstTrainingPlan = new TrainingPlan("Pierwszy plan");
+        firstTrainingPlan.addToArray(new PushUp());
+        firstTrainingPlan.addToArray(new Squat());
+        firstTrainingPlan.addToArray(new SitUp());
+        planBase.addToArray(firstTrainingPlan);
+        TrainingPlan secondTrainingPlan = new TrainingPlan("Drugi plan");
+        secondTrainingPlan.addToArray(new PushUp());
+        planBase.addToArray(secondTrainingPlan);
     }
 }
