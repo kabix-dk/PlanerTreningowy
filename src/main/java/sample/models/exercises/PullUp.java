@@ -1,10 +1,9 @@
 package sample.models.exercises;
 
-public class SitUp extends Exercise {
+public class PullUp extends Exercise{
 
     @Override
     public String toString() {
-        return "Sit-up";
+        return "Pull-up";
     }
-
 }
