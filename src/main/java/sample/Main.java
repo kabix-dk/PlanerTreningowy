@@ -18,14 +18,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
-
         Pane borderPane = FxmlUtils.fxmlLoader(BORDER_PANE_MAIN_FXML);
         Scene scene = new Scene(borderPane);
         scene.getStylesheets().add("css/StyleTemplate.css");
         stage.setScene(scene);
         stage.setTitle("Okno główne!");
         stage.show();
-
     }
 
     public static void main(String[] args) {
