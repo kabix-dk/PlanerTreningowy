@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.CustomizePlanController">
    <children>
-      <TreeView fx:id="planBaseTreeView" prefHeight="200.0" prefWidth="200.0" />
+      <VBox prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label text="Baza ćwiczeń" textFill="WHITE" />
+            <TableView fx:id="exerciseTableView" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true">
+              <columns>
+                <TableColumn fx:id="baseExercises" prefWidth="195.0" text="Ćwiczenie" />
+              </columns>
+               <VBox.margin>
+                  <Insets top="63.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
-            <ImageView fx:id="rightArrow" fitHeight="20.0" fitWidth="40.0">
+            <ImageView fx:id="rightArrow" fitHeight="20.0" fitWidth="40.0" onMouseClicked="#AddExerciseToPlan">
                <image>
                   <Image url="@../images/strzalkaprawo.png" />
                </image>
@@ -20,7 +35,7 @@
                   <Insets left="30.0" top="60.0" />
                </VBox.margin>
             </ImageView>
-            <ImageView fx:id="leftArrow" fitHeight="20.0" fitWidth="40.0">
+            <ImageView fx:id="leftArrow" fitHeight="20.0" fitWidth="40.0" onMouseClicked="#DeleteExerciseFromPlan">
                <image>
                   <Image url="@../images/strzalkalewo.png" />
                </image>
@@ -29,7 +44,27 @@
                </VBox.margin>
             </ImageView>
          </children>
+         <HBox.margin>
+            <Insets top="90.0" />
+         </HBox.margin>
       </VBox>
-      <TreeView fx:id="selectedPlanTextView" prefHeight="200.0" prefWidth="200.0" />
+      <VBox>
+         <children>
+            <Label text="Wybierz plan do edycji:" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <ComboBox fx:id="selectPlanComboBox" onAction="#ComboBoxAction">
+               <VBox.margin>
+                  <Insets bottom="25.0" />
+               </VBox.margin></ComboBox>
+            <TableView fx:id="selectedPlanTableView" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true">
+              <columns>
+                <TableColumn fx:id="planExercises" prefWidth="195.0" text="Ćwiczenie" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
    </children>
 </HBox>

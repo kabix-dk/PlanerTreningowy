@@ -29,6 +29,8 @@ public class TrainingPlan {
         this.name = name;
     }
 
+    public void removeFromArray(Exercise exercise) {trainingPlan.remove(exercise);}
+
     @Override
     public String toString() {
         return name;

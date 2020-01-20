@@ -11,8 +11,6 @@ import sample.models.TrainingPlan;
 import java.util.List;
 
 public class PlanListController {
-
-    private MainController mainController;
     public Button deletePlanButton;
     @FXML
     private TreeItem<String> root = new TreeItem<>();
@@ -73,14 +71,5 @@ public class PlanListController {
 
     public void setSelectPlanComboBox() {
         this.selectPlanComboBox.setItems(getPlans());
-    }
-
-
-    public void EditPlanButtonAction() {
-        mainController.setCenter("/fxml/CustomizePlan.fxml");
-    }
-
-    public void setMainController(MainController mainController) {
-        this.mainController = mainController;
     }
 }
