@@ -5,7 +5,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import sample.models.ExerciseBase;
+import sample.models.PlanBase;
+import sample.models.TrainingPlan;
 import sample.models.exercises.*;
+import sample.models.factory.ExerciseList;
 import sample.models.users.User;
 import sample.utils.FxmlUtils;
 
@@ -27,6 +30,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         addExercisesToBase();
+        addPlanToBase();
         User admin = new User("Kabix", "123");
         launch(args);
     }
@@ -38,5 +42,14 @@ public class Main extends Application {
         exerciseBase.addToArray(new SitUp());
         exerciseBase.addToArray(new PullUp());
         exerciseBase.addToArray(new StarJump());
+    }
+
+    public static void addPlanToBase() {
+        PlanBase planBase = PlanBase.getInstance();
+        TrainingPlan trainingPlan = new TrainingPlan("Plan jeden");
+        trainingPlan.addToArray(new PushUp());
+        trainingPlan.addToArray(new Squat());
+        trainingPlan.addToArray(new SitUp());
+        planBase.addToArray(trainingPlan);
     }
 }

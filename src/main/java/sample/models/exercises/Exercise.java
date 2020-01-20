@@ -1,7 +1,5 @@
 package sample.models.exercises;
 
-import javafx.beans.property.SimpleStringProperty;
-
 public abstract class Exercise {
     String name = toString();
 

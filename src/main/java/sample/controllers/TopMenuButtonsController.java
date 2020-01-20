@@ -1,7 +1,5 @@
 package sample.controllers;
 
-import javafx.event.ActionEvent;
-
 public class TopMenuButtonsController {
 
     public static final String PLAN_LIST_FXML = "/fxml/PlanList.fxml";

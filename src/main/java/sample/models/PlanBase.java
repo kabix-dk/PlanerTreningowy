@@ -1,25 +1,13 @@
 package sample.models;
 
-import sample.models.factory.ExerciseList;
-
 import java.util.ArrayList;
 
 public class PlanBase {
-    private ArrayList<ExerciseList> planBase;
 
-    public ArrayList<ExerciseList> getPlanBase() {
-        return planBase;
-    }
-    public void addPlan(ExerciseList exerciseList) {
-        planBase.add(exerciseList);
-    }
-    public void deletePlan(ExerciseList exerciseList) {
-        planBase.remove(exerciseList);
-    }
-    public ExerciseList getPlan(int index) {
-        return planBase.get(index);
-    }
-    public void createIterator() {
-
-    }
+    private PlanBase(){}
+    private static PlanBase planBase = new PlanBase();
+    private ArrayList<TrainingPlan> planList = new ArrayList<TrainingPlan>();
+    public static PlanBase getInstance() { return planBase; }
+    public ArrayList<TrainingPlan> getArray() { return planList; }
+    public void addToArray(TrainingPlan trainingPlan) { planList.add(trainingPlan); }
 }
