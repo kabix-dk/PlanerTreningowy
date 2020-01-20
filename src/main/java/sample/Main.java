@@ -46,10 +46,13 @@ public class Main extends Application {
 
     public static void addPlanToBase() {
         PlanBase planBase = PlanBase.getInstance();
-        TrainingPlan trainingPlan = new TrainingPlan("Plan jeden");
-        trainingPlan.addToArray(new PushUp());
-        trainingPlan.addToArray(new Squat());
-        trainingPlan.addToArray(new SitUp());
-        planBase.addToArray(trainingPlan);
+        TrainingPlan firstTrainingPlan = new TrainingPlan("Pierwszy plan");
+        firstTrainingPlan.addToArray(new PushUp());
+        firstTrainingPlan.addToArray(new Squat());
+        firstTrainingPlan.addToArray(new SitUp());
+        planBase.addToArray(firstTrainingPlan);
+        TrainingPlan secondTrainingPlan = new TrainingPlan("Drugi plan");
+        secondTrainingPlan.addToArray(new PushUp());
+        planBase.addToArray(secondTrainingPlan);
     }
 }

@@ -16,4 +16,16 @@ public class TrainingPlan {
     public void addToArray(Exercise exercise) {
         trainingPlan.add(exercise);
     }
+
+    public ArrayList<Exercise> getTrainingPlan() {
+        return trainingPlan;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
