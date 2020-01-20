@@ -1,7 +1,7 @@
 package sample.models.people;
 
-public class Trainer extends Person {
-    public Trainer(String username, String password) {
+public class CommonUser extends Person {
+    public CommonUser(String username, String password) {
         super.username = username;
         super.password = password;
         super.rola = toString();
@@ -9,6 +9,6 @@ public class Trainer extends Person {
 
     @Override
     public String toString() {
-        return "Trener";
+        return "Użytkownik";
     }
 }
