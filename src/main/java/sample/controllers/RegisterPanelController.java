@@ -38,9 +38,6 @@ public class RegisterPanelController {
         } else if(userToggle.isSelected()) {
             peopleBase.addToArray(new CommonUser(login, password));
         }
-        for (Person person : peopleBase.getArray()) {
-            System.out.println(person.username);
-        }
         roleTableView.setItems(getPeople());
     }
 

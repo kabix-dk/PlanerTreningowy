@@ -1,7 +1,5 @@
 package sample.controllers;
 
-import javafx.fxml.FXML;
-
 public class TopMenuButtonsController {
 
     public static final String REGISTER_PANEL_FXML = "/fxml/RegisterPanel.fxml";
