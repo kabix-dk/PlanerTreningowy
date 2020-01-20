@@ -77,10 +77,6 @@ public class PlanListController {
 
 
     public void EditPlanButtonAction() {
-        mainController.setCenter("/fxml/CustomizePlan.fxml");
-    }
 
-    public void setMainController(MainController mainController) {
-        this.mainController = mainController;
     }
 }

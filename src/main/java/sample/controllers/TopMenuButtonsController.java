@@ -1,7 +1,5 @@
 package sample.controllers;
 
-import javafx.fxml.FXML;
-
 public class TopMenuButtonsController {
 
     public static final String REGISTER_PANEL_FXML = "/fxml/RegisterPanel.fxml";
@@ -9,14 +7,6 @@ public class TopMenuButtonsController {
     public static final String EXERCISE_BASE_FXML = "/fxml/ExerciseBase.fxml";
     public static final String LOGIN_PANEL_FXML = "/fxml/LoginPanel.fxml";
     private MainController mainController;
-
-    @FXML
-    private PlanListController planListController;
-
-    @FXML
-    private void initialize() {
-        planListController.setMainController(mainController);
-    }
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
