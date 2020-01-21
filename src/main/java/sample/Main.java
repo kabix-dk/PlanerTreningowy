@@ -17,7 +17,7 @@ public class Main extends Application {
     public static final String BORDER_PANE_MAIN_FXML = "/fxml/BorderPaneMain.fxml";
 
     @Override
-    public void start(Stage stage) throws Exception{
+    public void start(Stage stage){
         Pane borderPane = FxmlUtils.fxmlLoader(BORDER_PANE_MAIN_FXML);
         Scene scene = new Scene(borderPane);
         scene.getStylesheets().add("css/StyleTemplate.css");

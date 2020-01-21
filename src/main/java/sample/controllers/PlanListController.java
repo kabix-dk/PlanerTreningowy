@@ -2,7 +2,6 @@ package sample.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import sample.models.PlanBase;
@@ -11,15 +10,16 @@ import sample.models.TrainingPlan;
 import java.util.List;
 
 public class PlanListController {
-    public Button deletePlanButton;
-    @FXML
-    private TreeItem<String> root = new TreeItem<>();
-    @FXML
-    private TreeView<String> treeView;
     @FXML
     private ComboBox<TrainingPlan> selectPlanComboBox;
     @FXML
     private TextField planNameTextField;
+    @FXML
+    public Button deletePlanButton;
+    @FXML
+    private TreeView<String> treeView;
+    @FXML
+    private TreeItem<String> root = new TreeItem<>();
     private TrainingPlan selectedTrainingPlan;
 
     public void initialize() {
@@ -46,7 +46,7 @@ public class PlanListController {
         });
     }
 
-    public void ComboBoxAction() {
+    public void comboBoxAction() {
         this.selectedTrainingPlan =  this.selectPlanComboBox.getSelectionModel().getSelectedItem();
     }
 
@@ -59,7 +59,7 @@ public class PlanListController {
         setSelectPlanComboBox();
     }
 
-    public void AddPlanButtonAction() {
+    public void addPlanButtonAction() {
         String name = planNameTextField.getText();
         PlanBase planBase = PlanBase.getInstance();
         planBase.addToArray(new TrainingPlan(name));

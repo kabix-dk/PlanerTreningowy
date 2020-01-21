@@ -16,32 +16,31 @@ import sample.models.exercises.*;
 public class CustomizePlanController {
 
     @FXML
-    public ComboBox<TrainingPlan> selectPlanComboBox;
+    private ComboBox<TrainingPlan> selectPlanComboBox;
     @FXML
-    public TableView<Exercise> selectedPlanTableView;
-    @FXML
-    public TableColumn<Exercise, String> planExercises;
-    @FXML
-    public TextField loadTextField;
-    @FXML
-    public TextField repetitionsTextField;
-    private TrainingPlan selectedTrainingPlan;
-    @FXML
-    private TableView<Exercise> exerciseTableView;
+    private TableView<Exercise> exerciseBaseTableView;
     @FXML
     private TableColumn<Exercise, String> baseExercises;
+    @FXML
+    private TableView<Exercise> selectedPlanTableView;
+    @FXML
+    private TableColumn<Exercise, String> planExercises;
+    @FXML
+    private TextField loadTextField;
+    @FXML
+    private TextField repetitionsTextField;
 
+    private TrainingPlan selectedTrainingPlan;
     private Exercise selectedExercise;
-
 
 
     public void initialize() {
         baseExercises.setCellValueFactory(new PropertyValueFactory<>("name"));
-        exerciseTableView.setItems(getExercises());
+        exerciseBaseTableView.setItems(getExercises());
         setSelectPlanComboBox();
     }
 
-    public void ComboBoxAction() {
+    public void comboBoxAction() {
         this.selectedTrainingPlan =  this.selectPlanComboBox.getSelectionModel().getSelectedItem();
         planExercises.setCellValueFactory(new PropertyValueFactory<>("name"));
         selectedPlanTableView.setItems(getSelectedPlanExercises());
@@ -71,8 +70,8 @@ public class CustomizePlanController {
         return exercises;
     }
 
-    public void AddExerciseToPlan() {
-        selectedExercise = exerciseTableView.getSelectionModel().getSelectedItem();
+    public void addExerciseToPlan() {
+        selectedExercise = exerciseBaseTableView.getSelectionModel().getSelectedItem();
         String loadAmount="";
         String repetitionsAmount="";
         Exercise exercise;
@@ -89,12 +88,12 @@ public class CustomizePlanController {
         else if (!loadAmount.equalsIgnoreCase("") && repetitionsAmount.equalsIgnoreCase("")) exercise = new WithLoad(selectedExercise, loadAmount);
         else exercise = new WithLoad(new Endurance(selectedExercise, repetitionsAmount), loadAmount);
         selectedTrainingPlan.addToArray(exercise);
-        ComboBoxAction();
+        comboBoxAction();
     }
 
-    public void DeleteExerciseFromPlan() {
+    public void deleteExerciseFromPlan() {
         selectedExercise = selectedPlanTableView.getSelectionModel().getSelectedItem();
         selectedTrainingPlan.removeFromArray(selectedExercise);
-        ComboBoxAction();
+        comboBoxAction();
     }
 }

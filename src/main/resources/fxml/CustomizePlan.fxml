@@ -18,7 +18,7 @@
             <VBox>
                <children>
                   <Label text="Baza ćwiczeń" textFill="WHITE" />
-                  <TableView fx:id="exerciseTableView" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true">
+                  <TableView fx:id="exerciseBaseTableView" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true">
                     <columns>
                       <TableColumn fx:id="baseExercises" prefWidth="195.0" text="Ćwiczenie" />
                     </columns>
@@ -30,7 +30,7 @@
             </VBox>
             <VBox>
                <children>
-                  <ImageView fx:id="rightArrow" fitHeight="20.0" fitWidth="40.0" onMouseClicked="#AddExerciseToPlan">
+                  <ImageView fx:id="rightArrow" fitHeight="20.0" fitWidth="40.0" onMouseClicked="#addExerciseToPlan">
                      <image>
                         <Image url="@../images/strzalkaprawo.png" />
                      </image>
@@ -38,7 +38,7 @@
                         <Insets left="15.0" top="170.0" />
                      </VBox.margin>
                   </ImageView>
-                  <ImageView fx:id="leftArrow" fitHeight="20.0" fitWidth="40.0" onMouseClicked="#DeleteExerciseFromPlan">
+                  <ImageView fx:id="leftArrow" fitHeight="20.0" fitWidth="40.0" onMouseClicked="#deleteExerciseFromPlan">
                      <image>
                         <Image url="@../images/strzalkalewo.png" />
                      </image>
@@ -55,7 +55,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <ComboBox fx:id="selectPlanComboBox" onAction="#ComboBoxAction">
+                  <ComboBox fx:id="selectPlanComboBox" onAction="#comboBoxAction">
                      <VBox.margin>
                         <Insets bottom="25.0" />
                      </VBox.margin>

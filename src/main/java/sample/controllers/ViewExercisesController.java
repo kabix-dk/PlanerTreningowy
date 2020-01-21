@@ -9,9 +9,9 @@ public class ViewExercisesController{
     @FXML
     public ImageView redArrowLeft;
     @FXML
-    public ImageView redArrowRight;
-    @FXML
     public Label currentExerciseLabel;
+    @FXML
+    public ImageView redArrowRight;
 
     private PlanIterator planIterator;
 
@@ -23,12 +23,10 @@ public class ViewExercisesController{
 
     public void redArrowLeftAction() {
         currentExerciseLabel.setText(planIterator.Previous().getName());
-        System.out.println("Poprzednie!");
     }
 
     public void redArrowRightAction() {
         currentExerciseLabel.setText(planIterator.Next().getName());
-        System.out.println("Następne!");
     }
 
     public void setStartingExercise() {
