@@ -11,4 +11,7 @@ public class PlanBase {
     public ArrayList<TrainingPlan> getArray() { return planList; }
     public void addToArray(TrainingPlan trainingPlan) { planList.add(trainingPlan); }
     public void delete(TrainingPlan trainingPlan) {planList.remove(trainingPlan);}
+    public int getSize() {
+        return planList.size();
+    }
 }

@@ -31,6 +31,14 @@ public class TrainingPlan {
 
     public void removeFromArray(Exercise exercise) {trainingPlan.remove(exercise);}
 
+    public Exercise getExercise(int index) {
+        return this.trainingPlan.get(index);
+    }
+
+    public int getSize() {
+        return trainingPlan.size();
+    }
+
     @Override
     public String toString() {
         return name;

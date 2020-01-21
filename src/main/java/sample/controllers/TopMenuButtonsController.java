@@ -1,5 +1,7 @@
 package sample.controllers;
 
+import javafx.event.ActionEvent;
+
 public class TopMenuButtonsController {
 
     public static final String REGISTER_PANEL_FXML = "/fxml/RegisterPanel.fxml";
@@ -7,6 +9,7 @@ public class TopMenuButtonsController {
     public static final String EXERCISE_BASE_FXML = "/fxml/ExerciseBase.fxml";
     public static final String LOGIN_PANEL_FXML = "/fxml/LoginPanel.fxml";
     public static final String EDIT_PLAN_FXML = "/fxml/CustomizePlan.fxml";
+    public static final String VIEW_EXERCISES_FXML = "/fxml/ViewExercises.fxml";
     private MainController mainController;
 
     public void setMainController(MainController mainController) {
@@ -30,4 +33,6 @@ public class TopMenuButtonsController {
     }
 
     public void showEditPanel() {mainController.setCenter(EDIT_PLAN_FXML);}
+
+    public void viewExercisesAction() { mainController.setCenter(VIEW_EXERCISES_FXML);}
 }
