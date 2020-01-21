@@ -10,6 +10,7 @@ import sample.models.TrainingPlan;
 import sample.models.exercises.*;
 import sample.models.factory.*;
 import sample.models.users.User;
+import sample.utils.FactoryBase;
 import sample.utils.FxmlUtils;
 
 public class Main extends Application {
@@ -29,28 +30,28 @@ public class Main extends Application {
     public static void main(String[] args) {
         addExercisesToBase();
         addPlanToBase();
-        User admin = new User("Kabix", "123");
         launch(args);
     }
 
     public static void addExercisesToBase() {
         ExerciseBase exerciseBase = ExerciseBase.getInstance();
-        exerciseBase.addToArray(new PushUpExercise().createExercise());
-        exerciseBase.addToArray(new SquatExercise().createExercise());
-        exerciseBase.addToArray(new SitUpExercise().createExercise());
-        exerciseBase.addToArray(new PullUpExercise().createExercise());
-        exerciseBase.addToArray(new StarJumpExercise().createExercise());
+        exerciseBase.addToArray(FactoryBase.getPushUpFactory().createExercise());
+        exerciseBase.addToArray(FactoryBase.getPullUpFactory().createExercise());
+        exerciseBase.addToArray(FactoryBase.getSitUpFactory().createExercise());
+        exerciseBase.addToArray(FactoryBase.getSquatFactory().createExercise());
+        exerciseBase.addToArray(FactoryBase.getStarJumpFactory().createExercise());
     }
 
     public static void addPlanToBase() {
         PlanBase planBase = PlanBase.getInstance();
-        TrainingPlan firstTrainingPlan = new TrainingPlan("Pierwszy plan");
-        firstTrainingPlan.addToArray(new PushUp());
-        firstTrainingPlan.addToArray(new Squat());
-        firstTrainingPlan.addToArray(new SitUp());
+        TrainingPlan firstTrainingPlan = new TrainingPlan("Trening nóg");
+        firstTrainingPlan.addToArray(FactoryBase.getSquatFactory().createExercise());
+        firstTrainingPlan.addToArray(FactoryBase.getStarJumpFactory().createExercise());
         planBase.addToArray(firstTrainingPlan);
-        TrainingPlan secondTrainingPlan = new TrainingPlan("Drugi plan");
-        secondTrainingPlan.addToArray(new PushUp());
+        TrainingPlan secondTrainingPlan = new TrainingPlan("Trening góry");
+        secondTrainingPlan.addToArray(FactoryBase.getSitUpFactory().createExercise());
+        secondTrainingPlan.addToArray(FactoryBase.getPullUpFactory().createExercise());
+        secondTrainingPlan.addToArray(FactoryBase.getPushUpFactory().createExercise());
         planBase.addToArray(secondTrainingPlan);
     }
 }
