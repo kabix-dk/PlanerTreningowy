@@ -1,21 +1,19 @@
 package sample.models.users;
 
+import sample.models.people.Person;
 import sample.utils.DialogUtils;
 
 public class User {
     private String login;
     private String haslo;
     private UserState userState;
-    private static User admin = new User("Kabix", "123");
+    private Person person;
 
-    public static User getUser() {
-        return admin;
-    }
-
-    public User(String login, String haslo) {
+    public User(String login, String haslo, Person person) {
         this.login = login;
         this.haslo = haslo;
         userState = WYLOGOWANY;
+        this.person = person;
     }
 
     private class LoggedInState extends UserState {
@@ -65,5 +63,18 @@ public class User {
 
     public void setHaslo(String haslo) {
         this.haslo = haslo;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public boolean checkActualState() {
+        if(userState == ZALOGOWANY) return true;
+        else return false;
     }
 }

@@ -1,6 +1,8 @@
 package sample.controllers;
 
 import javafx.event.ActionEvent;
+import sample.utils.ActualUser;
+import sample.utils.DialogUtils;
 
 public class TopMenuButtonsController {
 
@@ -21,18 +23,28 @@ public class TopMenuButtonsController {
     }
 
     public void showExerciseBase() {
-        mainController.setCenter(EXERCISE_BASE_FXML);
+
+        if(ActualUser.getUser().checkActualState()) mainController.setCenter(EXERCISE_BASE_FXML);
+        else DialogUtils.dialogPermission();
     }
 
     public void showPlanList() {
-        mainController.setCenter(PLAN_LIST_FXML);
+        if(ActualUser.getUser().checkActualState()) mainController.setCenter(PLAN_LIST_FXML);
+        else DialogUtils.dialogPermission();
     }
 
     public void showRegisterPanel() {
-        mainController.setCenter(REGISTER_PANEL_FXML);
+        if(ActualUser.getUser().checkActualState()) mainController.setCenter(REGISTER_PANEL_FXML);
+        else DialogUtils.dialogPermission();
     }
 
-    public void showEditPanel() {mainController.setCenter(EDIT_PLAN_FXML);}
+    public void showEditPanel() {
+        if(ActualUser.getUser().checkActualState()) mainController.setCenter(EDIT_PLAN_FXML);
+        else DialogUtils.dialogPermission();
+    }
 
-    public void viewExercisesAction() { mainController.setCenter(VIEW_EXERCISES_FXML);}
+    public void viewExercisesAction() {
+        if(ActualUser.getUser().checkActualState()) mainController.setCenter(VIEW_EXERCISES_FXML);
+        else DialogUtils.dialogPermission();
+    }
 }

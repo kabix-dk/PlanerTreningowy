@@ -35,4 +35,12 @@ public class DialogUtils {
         informationAlert.setContentText("Nie jesteś zalogowany!");
         informationAlert.showAndWait();
     }
+
+    public static void dialogPermission() {
+        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
+        informationAlert.setTitle("Błąd!");
+        informationAlert.setHeaderText("BRAK DOSTĘPU");
+        informationAlert.setContentText("Nie masz odpowiednich uprawnień!");
+        informationAlert.showAndWait();
+    }
 }

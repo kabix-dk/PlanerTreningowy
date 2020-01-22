@@ -11,7 +11,7 @@ public class StarJumpExercise extends ExerciseList {
     }
 
     @Override
-    public void addToArrayList(Exercise exercise) {
-        super.addToArrayList(exercise);
+    public String toString() {
+        return "StarJumpExercise";
     }
 }

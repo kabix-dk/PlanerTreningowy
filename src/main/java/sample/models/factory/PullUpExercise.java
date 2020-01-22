@@ -11,7 +11,7 @@ public class PullUpExercise extends ExerciseList {
     }
 
     @Override
-    public void addToArrayList(Exercise exercise) {
-        super.addToArrayList(exercise);
+    public String toString() {
+        return "PullUpExercise";
     }
 }
