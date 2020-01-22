@@ -23,28 +23,29 @@ public class TopMenuButtonsController {
     }
 
     public void showExerciseBase() {
-
-        if(ActualUser.getUser().checkActualState()) mainController.setCenter(EXERCISE_BASE_FXML);
-        else DialogUtils.dialogPermission();
+        getPermission(ActualUser.getUser().getPerson().showExerciseBase(), EXERCISE_BASE_FXML);
     }
 
     public void showPlanList() {
-        if(ActualUser.getUser().checkActualState()) mainController.setCenter(PLAN_LIST_FXML);
-        else DialogUtils.dialogPermission();
+        getPermission(ActualUser.getUser().getPerson().showPlanList(), PLAN_LIST_FXML);
     }
 
     public void showRegisterPanel() {
-        if(ActualUser.getUser().checkActualState()) mainController.setCenter(REGISTER_PANEL_FXML);
-        else DialogUtils.dialogPermission();
+        getPermission(ActualUser.getUser().getPerson().showRegisterPanel(), REGISTER_PANEL_FXML);
     }
 
     public void showEditPanel() {
-        if(ActualUser.getUser().checkActualState()) mainController.setCenter(EDIT_PLAN_FXML);
-        else DialogUtils.dialogPermission();
+        getPermission(ActualUser.getUser().getPerson().showEditPanel(), EDIT_PLAN_FXML);
     }
 
     public void viewExercisesAction() {
-        if(ActualUser.getUser().checkActualState()) mainController.setCenter(VIEW_EXERCISES_FXML);
-        else DialogUtils.dialogPermission();
+        getPermission(ActualUser.getUser().getPerson().viewExercisesAction(), VIEW_EXERCISES_FXML);
+    }
+
+    private void getPermission(boolean b, String fxmlPath) {
+        if (ActualUser.getUser().checkActualState()) {
+            if (b) mainController.setCenter(fxmlPath);
+            else DialogUtils.dialogPermission();
+        } else DialogUtils.dialogPermission();
     }
 }

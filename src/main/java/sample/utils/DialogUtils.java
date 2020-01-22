@@ -43,4 +43,12 @@ public class DialogUtils {
         informationAlert.setContentText("Nie masz odpowiednich uprawnień!");
         informationAlert.showAndWait();
     }
+
+    public static void wrongInput() {
+        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
+        informationAlert.setTitle("Błąd!");
+        informationAlert.setHeaderText("NIEPOPRAWNE DANE WEJSCIOWE");
+        informationAlert.setContentText("Podane dane wejściowe są niepoprawne!");
+        informationAlert.showAndWait();
+    }
 }

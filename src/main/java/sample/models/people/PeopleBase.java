@@ -11,4 +11,29 @@ public class PeopleBase extends Person{
     public ArrayList<Person> getArray() {
         return peopleList;
     }
+
+    @Override
+    public boolean showExerciseBase() {
+        return false;
+    }
+
+    @Override
+    public boolean showPlanList() {
+        return false;
+    }
+
+    @Override
+    public boolean showRegisterPanel() {
+        return false;
+    }
+
+    @Override
+    public boolean showEditPanel() {
+        return false;
+    }
+
+    @Override
+    public boolean viewExercisesAction() {
+        return false;
+    }
 }

@@ -12,6 +12,7 @@ import sample.models.ExerciseBase;
 import sample.models.PlanBase;
 import sample.models.TrainingPlan;
 import sample.models.exercises.*;
+import sample.utils.DialogUtils;
 
 public class CustomizePlanController {
 
@@ -75,19 +76,22 @@ public class CustomizePlanController {
         String loadAmount="";
         String repetitionsAmount="";
         Exercise exercise;
-        if((repetitionsTextField.getText() != null || repetitionsTextField.getText().trim().isEmpty()) && Float.parseFloat(repetitionsTextField.getText()) > 0)
-        {
-            repetitionsAmount = repetitionsTextField.getText();
+        if(!repetitionsTextField.getText().matches("\\d+") || !loadTextField.getText().matches("\\d+")) DialogUtils.wrongInput();
+        else {
+            if((repetitionsTextField.getText() != null || repetitionsTextField.getText().trim().isEmpty()) && Float.parseFloat(repetitionsTextField.getText()) > 0)
+            {
+                repetitionsAmount = repetitionsTextField.getText();
+            }
+            if((loadTextField.getText() != null || loadTextField.getText().trim().isEmpty()) && Integer.parseInt(loadTextField.getText()) > 0)
+            {
+                loadAmount = loadTextField.getText();
+            }
+            if(loadAmount.equalsIgnoreCase("") && repetitionsAmount.equalsIgnoreCase("")) exercise = selectedExercise;
+            else if (loadAmount.equalsIgnoreCase("") && !repetitionsAmount.equalsIgnoreCase("")) exercise = new Endurance(selectedExercise, repetitionsAmount);
+            else if (!loadAmount.equalsIgnoreCase("") && repetitionsAmount.equalsIgnoreCase("")) exercise = new WithLoad(selectedExercise, loadAmount);
+            else exercise = new WithLoad(new Endurance(selectedExercise, repetitionsAmount), loadAmount);
+            selectedTrainingPlan.addToArray(exercise);
         }
-        if((loadTextField.getText() != null || loadTextField.getText().trim().isEmpty()) && Integer.parseInt(loadTextField.getText()) > 0)
-        {
-            loadAmount = loadTextField.getText();
-        }
-        if(loadAmount.equalsIgnoreCase("") && repetitionsAmount.equalsIgnoreCase("")) exercise = selectedExercise;
-        else if (loadAmount.equalsIgnoreCase("") && !repetitionsAmount.equalsIgnoreCase("")) exercise = new Endurance(selectedExercise, repetitionsAmount);
-        else if (!loadAmount.equalsIgnoreCase("") && repetitionsAmount.equalsIgnoreCase("")) exercise = new WithLoad(selectedExercise, loadAmount);
-        else exercise = new WithLoad(new Endurance(selectedExercise, repetitionsAmount), loadAmount);
-        selectedTrainingPlan.addToArray(exercise);
         comboBoxAction();
     }
 

@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.models.people.*;
+import sample.models.users.User;
+import sample.utils.ActualUser;
 
 public class RegisterPanelController {
     @FXML
@@ -19,9 +21,8 @@ public class RegisterPanelController {
     public TableColumn<Person, String> loginTableColumn;
     public TableColumn<Person, String> roleTableColumn;
 
-    private PeopleBase peopleBase = new PeopleBase();
-
     public void initialize() {
+        roleTableView.setItems(getPeople());
         loginTableColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
         roleTableColumn.setCellValueFactory(new PropertyValueFactory<>("rola"));
 
@@ -31,19 +32,30 @@ public class RegisterPanelController {
     public void createAccount() {
         String login = loginTextField.getText();
         String password = passwordTextField.getText();
+        Person person;
         if (adminToggle.isSelected()) {
-            peopleBase.addToArray(new Admin(login, password));
+            person = new Admin(login, password);
+            addToBase(login, password, person);
         } else if(trenerToggle.isSelected()) {
-            peopleBase.addToArray(new Trainer(login, password));
+            person = new Trainer(login, password);
+            addToBase(login, password, person);
         } else if(userToggle.isSelected()) {
-            peopleBase.addToArray(new CommonUser(login, password));
+            person = new CommonUser(login, password);
+            addToBase(login, password, person);
         }
         roleTableView.setItems(getPeople());
+        loginTextField.clear();
+        passwordTextField.clear();
+    }
+
+    private void addToBase(String login, String password, Person person) {
+        ActualUser.getPeopleBase().addToArray(person);
+        ActualUser.addUserToBase(new User(login, password, person));
     }
 
     public ObservableList<Person> getPeople() {
         ObservableList<Person> people = FXCollections.observableArrayList();
-        people.addAll(peopleBase.getArray());
+        people.addAll(ActualUser.getPeopleBase().getArray());
         return people;
     }
 }

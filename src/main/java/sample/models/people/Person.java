@@ -29,4 +29,10 @@ public abstract class Person {
     public void setRola(String rola) {
         this.rola = rola;
     }
+
+    public boolean showExerciseBase() { return true; };
+    public abstract boolean showPlanList();
+    public abstract boolean showRegisterPanel();
+    public abstract boolean showEditPanel();
+    public boolean viewExercisesAction() { return true; };
 }

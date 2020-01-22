@@ -7,9 +7,6 @@ import javafx.stage.Stage;
 import sample.models.ExerciseBase;
 import sample.models.PlanBase;
 import sample.models.TrainingPlan;
-import sample.models.exercises.*;
-import sample.models.factory.*;
-import sample.models.users.User;
 import sample.utils.FactoryBase;
 import sample.utils.FxmlUtils;
 

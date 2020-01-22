@@ -6,6 +6,8 @@ import sample.models.users.User;
 import javafx.scene.control.Button;
 import sample.utils.ActualUser;
 
+import java.util.ArrayList;
+
 public class LoginController {
 
     @FXML
@@ -24,6 +26,13 @@ public class LoginController {
     public void zaloguj() {
         String login = login_textfield.getText();
         String haslo = haslo_textfield.getText();
+        ArrayList<User> listOfUsers = ActualUser.getUsers();
+        for (User us: listOfUsers) {
+            System.out.println(us.toString());
+            if(us.getHaslo().equals(haslo) && us.getLogin().equals(login)) {
+                ActualUser.setUser(us);
+            }
+        }
         if(login.equals(ActualUser.getUser().getLogin()) && haslo.equals(ActualUser.getUser().getHaslo())) {
             ActualUser.getUser().logIn();
         } else {
@@ -37,7 +46,4 @@ public class LoginController {
         ActualUser.getUser().logOut();
     }
 
-    public void rejestruj() {
-
-    }
 }

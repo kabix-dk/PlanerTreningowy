@@ -11,4 +11,19 @@ public class CommonUser extends Person {
     public String toString() {
         return "Użytkownik";
     }
+
+    @Override
+    public boolean showPlanList() {
+        return false;
+    }
+
+    @Override
+    public boolean showRegisterPanel() {
+        return true;
+    }
+
+    @Override
+    public boolean showEditPanel() {
+        return false;
+    }
 }

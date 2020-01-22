@@ -11,4 +11,19 @@ public class Trainer extends Person {
     public String toString() {
         return "Trener";
     }
+
+    @Override
+    public boolean showPlanList() {
+        return false;
+    }
+
+    @Override
+    public boolean showRegisterPanel() {
+        return true;
+    }
+
+    @Override
+    public boolean showEditPanel() {
+        return true;
+    }
 }
